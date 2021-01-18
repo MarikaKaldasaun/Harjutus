@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Lesson2 {
 
     public static void main(String[] args) {
-        System.out.println(exercise5(1, 10));
+        System.out.println(seqLength( 5));
     }
 
     // TODO loo 10 elemendile täisarvude massiv
