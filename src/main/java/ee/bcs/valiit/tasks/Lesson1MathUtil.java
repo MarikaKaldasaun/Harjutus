@@ -24,19 +24,19 @@ public class Lesson1MathUtil {
 
     // TODO tagasta a ja b suurim väärtus
     public static int max(int a, int b) {
-        if ( a > b ) {
+        if (a > b) {
             return a;
-        }else{
+        } else {
             return b;
         }
     }
 
     // TODO tagasta a absoluut arv
     public static int abs(int a) {
-        if ( a>=0) {
+        if (a >= 0) {
             return a;
         } else {
-           return -a;
+            return -a;
         }
     }
 
@@ -51,10 +51,29 @@ public class Lesson1MathUtil {
     }
 
     // TODO tagasta kolmest arvust kõige väiksem
-    public static int min(int a, int b, int c) { return min ( min ( a, b), c); }
+    public static int min(int a, int b, int c) {
+        if (a <= b && a <= c) {
+            return a;
+        } else if (b <= a && b <= c) {
+            return b;
+        } else {
+            return c;
+        }
+    }
+
 
     // TODO tagasta kolmest arvust kõige suurem
-    public static int max(int a, int b, int c) { return max (max ( a, b), c); }}
+    public static int max(int a, int b, int c) {
+        if (a >= b && a >= c) {
+            return a;
+        } else if (b >= a && b >= c) {
+            return b;
+        } else {
+            return c;
+        }
+    }
+}
+
 
 
 
