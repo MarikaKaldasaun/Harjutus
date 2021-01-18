@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping ("vastus")
 @RestController
 public class MathUtilController {
-    //http://localhost:8080/vastus/min/7/3
+    //http://localhost:8080/vastus/min/?a=7&b=3
     @GetMapping("min")
     public int min(@RequestParam("a") int aVariable, @RequestParam("b") int bVariable) {
         return SolutionLesson1MathUtil.min(aVariable, bVariable);

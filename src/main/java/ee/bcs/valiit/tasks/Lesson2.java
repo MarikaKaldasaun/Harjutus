@@ -14,7 +14,8 @@ public class Lesson2 {
         // exercise2();
         //exercise3(3,3);
         //System.out.println(exercise4(4));
-        System.out.println(seqLength( 5));
+        //System.out.println(seqLength( 5))
+        //System.out.println(exercise5( 5, 10));;
     }
 
 
@@ -106,7 +107,7 @@ public class Lesson2 {
         return jada;
     }
 
-    public static String seqLength(int x, int y) {
+    public static String exercise5 (int x, int y) {
         int maxLength = 0;
         for (int i = x; i <= y; i++) {
             int seqLength = seqLength(i);
