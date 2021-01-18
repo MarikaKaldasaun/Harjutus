@@ -1,6 +1,6 @@
 package ee.bcs.valiit.tasks;
 
-import com.sun.xml.bind.v2.runtime.output.SAXOutput;
+
 
 import java.math.BigDecimal;
 import  java.math.RoundingMode;
@@ -10,7 +10,7 @@ public class Lesson2 {
 
     public static void main(String[] args) {
         // TODO siia saab kirjutada koodi testimiseks
-        // exercise1();
+        //exercise1();
         // exercise2();
         //exercise3(3,3);
         //System.out.println(exercise4(4));
