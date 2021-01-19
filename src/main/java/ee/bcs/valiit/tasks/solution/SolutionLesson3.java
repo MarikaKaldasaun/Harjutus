@@ -11,7 +11,7 @@ public class SolutionLesson3 {
         System.out.println(isPrime(21));
     }
 
-    public static int sum(int x) {
+    public static int sum(int [] x) {
         int sum = 0;
         for (int i : x) {
             sum += i;
