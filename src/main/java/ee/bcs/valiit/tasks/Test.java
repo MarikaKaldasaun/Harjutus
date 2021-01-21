@@ -6,7 +6,7 @@ public class Test {
     private String address;
     private int age;
     private String id;
-
+    private String account;
 
     public String getId() {
         return id;
@@ -42,5 +42,8 @@ public class Test {
 
     public Test setAge() {
         return this;
+    }
+
+    public Object getAccount() {return account;
     }
 }

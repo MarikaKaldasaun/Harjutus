@@ -1,18 +1,40 @@
 package ee.bcs.valiit.tasks;
-import org.springframework.mail.MailAuthenticationException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
+import javax.naming.Name;
+import javax.security.auth.login.AccountException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("employee")
 @RestController
 
 public class EmployeeController {
+
+    @Autowired
+    private NamedParameterJdbcTemplate jdbcTemplate;
+
+    @PostMapping ("name")
+    public void test (@RequestBody Test test ){
+        String sql = "INSERT INTO test (name, account) VALUES (:nameParameter, :accountParameter)";
+        Map<String, Object>paramMap = new HashMap<>();
+        paramMap.put("nameParameter", test.getName());
+        paramMap.put("accountParameter", test.getAccount());
+        jdbcTemplate.update(sql, paramMap);
+
+    }
+
     List<Test> testList = new ArrayList<>();
+
+
+
 
     @GetMapping( "test")
 //http://localhost:8080/employee/test/?name
