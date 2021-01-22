@@ -2,9 +2,9 @@ package ee.bcs.valiit.tasks.Controller;
 
 public class Bank {
 
-    public String accountNr;
-    private int accountId;
-    private String customerId;
+    public String account_nr;
+    private int account_id;
+    private String customer_id;
     private String balance;
 
 
@@ -16,29 +16,29 @@ public class Bank {
         this.balance = balance;
     }
 
-    public String getCustomerId() {
-        return customerId;
+    public String getCustomer_id() {
+        return customer_id;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setCustomer_id(String customer_id) {
+        this.customer_id = customer_id;
     }
 
-    public int getAccountId() {
-        return accountId;
+    public int getAccount_id() {
+        return account_id;
     }
 
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
+    public void setAccount_id(int account_id) {
+        this.account_id = account_id;
     }
 
 
 
-    public String getAccountNr() {
-        return accountNr;
+    public String getAccount_nr() {
+        return account_nr;
     }
 
-    public void setAccountNr(String accountNr) {
-        this.accountNr = accountNr;
+    public void setAccount_nr(String account_nr) {
+        this.account_nr = account_nr;
     }
 }

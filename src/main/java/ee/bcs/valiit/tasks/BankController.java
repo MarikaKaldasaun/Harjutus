@@ -1,23 +1,52 @@
 package ee.bcs.valiit.tasks;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import ee.bcs.valiit.tasks.Controller.Bank;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RequestMapping("bank")
 @RestController
 public class BankController {
+    @Autowired
+    private NamedParameterJdbcTemplate jdbcTemplate;
+
     HashMap<String, BigDecimal> accountMap = new HashMap<>();
 
-    // http://localhost:8080/bank/createAccount?accountNr=EE123
-    @GetMapping("createAccount")
-    public void createAccount(@RequestParam ("accountNr") String accountNr){
-    accountMap.put(accountNr, BigDecimal.ZERO);
+
+    @PostMapping ("createAccount")
+    public void createAccount(@RequestBody Bank account){
+   // accountMap.put(accountNr, BigDecimal.ZERO);
+        String sql = "INSERT INTO account (account_nr, customer_id, balance) VALUES (:account_nrParameter," +
+                " :customer_idParameter, :balanceParameter)";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("account_nrParameter", account.getAccount_nr());
+        paramMap.put("customer_idParameter", account.getCustomer_id());
+        paramMap.put("balanceParameter", account.getBalance());
+        jdbcTemplate.update(sql, paramMap);
     }
+        //List<Bank> accountList = new ArrayList<>();
+
+
+       // @GetMapping( "account")
+
+       // public Bank Bank(@RequestParam("account_Nr") String account_Nr) {
+       // Bank account= new Bank();
+       // account.setAccount_Nr();
+       // account.setCustomer_ID();
+      //  account.setBalance();
+       // return account;
+
+    //}
+
+
+
 
     // http://localhost:8080/bank/accountBalance?accountNr=EE123
     @GetMapping ("accountBalance")
