@@ -50,7 +50,7 @@ public class BankRepository {
         String sql2 = "UPDATE account SET balance = :balance WHERE account_nr = :accountNumber";
         Map<String, Object> paramMap2 = new HashMap<>();
         paramMap2.put("accountNumber", account_nr);
-        paramMap2.put("balance", newBalance);
+        //paramMap2.put("balance", newBalance);
        jdbcTemplate.update(sql2, paramMap2);
         //System.out.println("The amount " + amount + " was added to " + account_nr);
     }

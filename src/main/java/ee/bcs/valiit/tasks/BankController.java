@@ -72,13 +72,14 @@ public class BankController {
                               @RequestParam ("toAccount")
                               String toAccount,
                               @RequestParam ("amount") BigDecimal amount){
+        /*
         String sql = "SELECT balance FROM account where account_nr = :accountNumber";
         Map<String, Object>paramMap = new HashMap<>();
         paramMap.put("accountNumber", fromAccount);
-        BigDecimal fromAccountBalance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
+       // BigDecimal fromAccountBalance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
 
-        BigDecimal newFromAccountBalance = fromAccountBalance.subtract(amount);
-        if (newFromAccountBalance.compareTo(BigDecimal.ZERO) < 0){
+       // BigDecimal newFromAccountBalance = fromAccountBalance.subtract(amount);
+      //  if (newFromAccountBalance.compareTo(BigDecimal.ZERO) < 0){
             throw new RuntimeException("Not enough money");
         }
         //accountMap.put(fromAccount, newFromAccountBalance);
@@ -87,14 +88,14 @@ public class BankController {
         //BigDecimal toAccountBalance = accountMap.get(toAccount);
         String sql2 = "UPDATE account SET balance WHERE account_nr = :accountNumber";
         Map<String, Object>paramMap2 = new HashMap<>();
-        paramMap2.put("accountNumber", fromAccount);
+     //   paramMap2.put("accountNumber", fromAccount);
         paramMap2.put("balance", newFromAccountBalance);
-       jdbcTemplate.update(sql2, paramMap2);
+       //jdbcTemplate.update(sql2, paramMap2);
 
         String sql3 = "SELECT balance FROM account WHERE account_nr = :accountNumber";
         Map<String, Object>paramMap3 = new HashMap<>();
         paramMap3.put("accountNumber", toAccount);
-        BigDecimal toAccountBalance = jdbcTemplate.queryForObject(sql3, paramMap3, BigDecimal.class);
+      //  BigDecimal toAccountBalance = jdbcTemplate.queryForObject(sql3, paramMap3, BigDecimal.class);
 
         BigDecimal newToAccountBalance = toAccountBalance.add(amount);
 
@@ -102,7 +103,7 @@ public class BankController {
         Map<String, Object>paramMap4 = new HashMap<>();
         paramMap4.put("accountNumber", toAccount);
         paramMap4.put("balance", newToAccountBalance);
-        jdbcTemplate.update(sql4, paramMap4);
+        jdbcTemplate.update(sql4, paramMap4);*/
 
 
     }
