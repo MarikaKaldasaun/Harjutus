@@ -27,6 +27,10 @@ public class BankService2 {
 
     }
 
+    public void createCustomer ( BigDecimal customerId, String name, String accountNr ){
+        bankRepository2.createCustomer(customerId, name, accountNr);
+    }
+
         public BigDecimal accountBalance( String accountNr) {
         return bankRepository2.accountBalance(accountNr);
 

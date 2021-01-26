@@ -29,6 +29,13 @@ public class BankController2 {
         bankService2.createAccount(accountNr);
     }
 
+     // http://localhost:8080/bank2/customer?customerId=1&name=HeleVari&accountNr=EE423
+    @GetMapping("customer")
+    public void createCustomer (@RequestParam ("customerId") BigDecimal customerId, @RequestParam ("name") String name,
+                                @RequestParam ("accountNr") String accountNr){
+        bankService2.createCustomer(customerId, name, accountNr);
+    }
+
     // http://localhost:8080/bank2/accountBalance?accountNr=EE123
     //http://localhost:8080/bank2/accountBalance?accountNr=EE125
     @GetMapping("accountBalance")

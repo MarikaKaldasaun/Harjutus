@@ -24,6 +24,14 @@ public class BankRepository2 {
         paramMap.put("balance", BigDecimal.ZERO);
         jdbcTemplate.update(sql, paramMap);
     }
+    public void createCustomer ( BigDecimal customerId, String name, String accountNr ){
+        String sql = "INSERT INTO customer (customer_id, name, account_nr) VALUES (:customerId, :name, :accountNr)";
+        Map<String, Object> paramMap = new HashMap();
+        paramMap.put("customerId", customerId);
+        paramMap.put("name", name);
+        paramMap.put("accountNr", accountNr);
+        jdbcTemplate.update(sql, paramMap);
+    }
 
     public BigDecimal accountBalance( String accountNr) {
         String sql = "SELECT balance FROM account where account_number = :accountNumber";
