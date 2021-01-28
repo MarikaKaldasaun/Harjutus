@@ -42,22 +42,22 @@ public class BankService2 {
         bankRepository2.updateBalance (accountNr, newBalance);
 
     }
-
+    //http://localhost:8080/bank2/withdrawMoney?accountNr=EE123&amount=13
     public void withdrawMoney(String accountNr, BigDecimal amount){
 
         BigDecimal balance = bankRepository2.withdrawMoney(accountNr, amount);
         BigDecimal newBalance = balance.subtract(amount);
         if(newBalance.compareTo(BigDecimal.ZERO) < 0){
-            throw new RuntimeException("Not enough money");
+            throw new MyException ("Pole piisavalt raha");
         }
         bankRepository2.updateBalance(accountNr, newBalance);
     }
-
+    //http://localhost:8080/bank2/transferMoney?fromAccount=EE124&toAccount=EE123&amount=12
     public void transferMoney( String fromAccount2, String toAccount2, BigDecimal amount){
         BigDecimal fromAccountBalance = bankRepository2.withdrawMoney(fromAccount2, amount);
         BigDecimal newFromAccountBalance = fromAccountBalance.subtract(amount);
         if(newFromAccountBalance.compareTo(BigDecimal.ZERO) < 0){
-            throw new RuntimeException("Not enough money");
+            throw new MyException("Not enough money");
         }
        bankRepository2.updateBalance(fromAccount2, newFromAccountBalance);
 

@@ -5,20 +5,21 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet id="2020-01-26" author="Marika">
-        <createTable tableName="account">
-            <column name="id" type="int" autoIncrement="true">
+
+
+        <createTable tableName="customer">
+            <column name="customer_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="customer_id" type="text"/>
-
+            <column name="name" type="text"/>
             <column name="account_nr" type="text"/>
-
-             <column name="balance" type="text"/>
-
         </createTable>
 
         <createTable tableName="account2">
-            <column name="id" type="int" autoIncrement="true">
+            <column name="customer_id" type="int">
+                <constraints foreignKeyName="fk_account2_customer" references="customer(customer_id)"/>
+            </column>
+            <column name="account_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
             <column name="account_number" type="text"/>
@@ -28,26 +29,18 @@
 
 
 
-<createTable tableName="author">
-<column name="id" type="int" autoIncrement="true">
-    <constraints primaryKey="true"/>
-</column>
-<column name="name" type="text"/>
-        </createTable>
 
-        <createTable tableName="customer">
-                <column name="customer_id" type="int" autoIncrement="true">
-                    <constraints primaryKey="true"/>
-                </column>
-        <column name="name" type="text"/>
-        <column name="account_nr" type="text"/>
-        </createTable>
-        
         <createTable tableName="transaction_history">
-            <column name="customer_id" type="int" autoIncrement="true">
-                <constraints primaryKey="true"/>
+            <column name="customer_id" type="int"> <constraints foreignKeyName="fk_transaction_history_account2" references="account2(account_id)"/>
+        </column>
+        <column name="account_id" type="int" autoIncrement="true">
+            <constraints primaryKey="true"/>
             </column>
-            <column name="account_nr" type="text"/>
+            <column name="fromaccount" type="text"/>
+            <column name="toaccount" type="text"/>
+            <column name="deposit" type="numeric(10,2)"/>
+            <column name="withdraw" type="numeric(10,2)"/>
+            <column name="transfer" type="numeric(10,2)"/>
             <column name="balance" type="numeric(10,2)"/>
             <column name="date" type="text"/>
         </createTable>
