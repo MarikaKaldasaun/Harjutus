@@ -34,7 +34,7 @@ public class BankRepository2 {
     }
 
     public BigDecimal accountBalance( String accountNr) {
-        String sql = "SELECT balance FROM account where account_number = :accountNumber";
+        String sql = "SELECT balance FROM account2 where account_number = :accountNumber";
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("accountNumber", accountNr);
         return jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);

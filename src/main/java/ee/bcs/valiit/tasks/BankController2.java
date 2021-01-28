@@ -58,7 +58,7 @@ public class BankController2 {
        bankService2.withdrawMoney(accountNr, amount);
     }
 
-    // http://localhost:8080/bank2/transferMoney?fromAccount=EE124&toAccount=EE123&amount=12
+    // http://localhost:8080/bank2/transferMoney?fromAccount=EE123&toAccount=EE124&amount=12
     @GetMapping("transferMoney")
     public void transferMoney(@RequestParam("fromAccount") String fromAccount2,
                               @RequestParam("toAccount") String toAccount2,
