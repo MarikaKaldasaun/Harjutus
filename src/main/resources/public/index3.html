@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel= "stylesheet" href= "style.css">
+</head>
+<body>
+<p>Min value</p>
+a: <input id="min_a">
+b: <input id="min_b">
+<button id="min_button" type="button" >Min</button>
+vastus: <input id="min_answer" disabled/>
+<br />
+<script>
+
+    let min_a = document.getElementById("min_a");
+    let min_b = document.getElementById("min_b");
+    let min_answer = document.getElementById("min_answer");
+    function pressButtonFunction() {
+        if(min_a.value < min_b.value) {
+            min_answer.value = min_a.value;
+        } else {
+            min_answer.value = min_b.value;
+        }
+    }
+    let element = document.getElementById("min_button");
+    element.addEventListener("click", pressButtonFunction)
+</script>
+
+
+
+<p>Max value</p>
+a: <input id="max_a">
+b: <input id="max_b">
+<button id="max_button" type="button"> Max</button>
+vastus: <input id="max_answer" disabled/>
+<br />
+<script>
+    let max_a = document.getElementById("max_a");
+    let max_b = document.getElementById("max_b");
+    let max_answer = document.getElementById("max_answer");
+    function pressButtonFunction() {
+        if (max_a.value > max_b.value) {
+            max_answer.value = max_a.value;
+        } else {
+            max_answer.value = max_b.value;
+        }
+    }
+    element = document.getElementById("max_button");
+    element.addEventListener("click", pressButtonFunction)
+</script>
+
+
+
+<p>Abs value</p>
+a: <input id="abs_a">
+<button id="abs_button" type="button" >Abs</button>
+vastus: <input id="abs_answer" disabled/>
+<br />
+<script>
+    let abs_a = document.getElementById("abs_a");
+    let abs_answer = document.getElementById("abs_answer");
+    function pressButtonFunction() {
+        if(abs_a.value >= 0) {
+            abs_answer.value = abs_a.value;
+        } else {
+            abs_answer.value = -abs_a.value;
+        }
+    }
+    element = document.getElementById("abs_button");
+    element.addEventListener("click", pressButtonFunction)
+</script>
+
+<p>IsEven value</p>
+a: <input id="isEven_a">
+<button id="isEven_button" type="button" >isEven</button>
+vastus: <input id="isEven_answer" disabled/>
+<br />
+<script>
+    let isEven_a = document.getElementById("isEven_a");
+    let isEven_answer = document.getElementById("isEven_answer");
+    function pressButtonFunction() {
+        if(isEven_a.value %2 === 0) {
+            isEven_answer.value = true;
+        } else {
+            isEven_answer.value = false;
+        }
+    }
+    element = document.getElementById("isEven_button");
+    element.addEventListener("click", pressButtonFunction)
+</script>
+
+<p>Min2 value</p>
+a: <input id="min2_a">
+b: <input id="min2_b">
+c: <input id="min2_c">
+<button id="min2_button" type="button" >Min2</button>
+vastus: <input id="min2_answer" disabled/>
+<br />
+<script>
+    let min2_a = document.getElementById("min2_a");
+    let min2_b = document.getElementById("min2_b");
+    let min2_c = document.getElementById("min2_c");
+    let min2_answer = document.getElementById("min2_answer");
+    function pressButtonFunction() {
+        if(min2_a.value <= min2_b.value && min2_a.value <= min2_c.value ) {
+            min2_answer.value = min2_a.value;
+        } else if (min2_b.value <= min2_a.value && min2_b.value <= min2_c.value ) {
+            min2_answer.value = min2_b.value;
+        } else {
+            min2_answer.value = min2_c.value;
+        }
+    }
+    element = document.getElementById("min2_button");
+    element.addEventListener("click", pressButtonFunction)
+</script>
+
+<p>Max2 value</p>
+a: <input id="max2_a">
+b: <input id="max2_b">
+c: <input id="max2_c">
+<button id="max2_button" type="button" >Max2</button>
+vastus: <input id="max2_answer" disabled/>
+<br />
+<script>
+    let max2_a = document.getElementById("max2_a");
+    let max2_b = document.getElementById("max2_b");
+    let max2_c = document.getElementById("max2_c");
+    let max2_answer = document.getElementById("max2_answer");
+    function pressButtonFunction() {
+        if(max2_a.value >= max2_b.value && max2_a.value >= max2_c.value ) {
+            max2_answer.value = max2_a.value;
+        } else if (max2_b.value >= max2_a.value && max2_b.value >= max2_c.value ) {
+            max2_answer.value = max2_b.value;
+        } else {
+            max2_answer.value = max2_c.value;
+        }
+    }
+    element = document.getElementById("max2_button");
+    element.addEventListener("click", pressButtonFunction)
+</script>
+</body>
+</html>

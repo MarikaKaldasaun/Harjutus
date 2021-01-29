@@ -52,7 +52,7 @@ public class BankService2 {
         }
         bankRepository2.updateBalance(accountNr, newBalance);
     }
-    //http://localhost:8080/bank2/transferMoney?fromAccount=EE124&toAccount=EE123&amount=12
+    // http://localhost:8080/bank2/transferMoney?fromAccount=EE124&toAccount=EE123&amount=12
     public void transferMoney( String fromAccount2, String toAccount2, BigDecimal amount){
         BigDecimal fromAccountBalance = bankRepository2.withdrawMoney(fromAccount2, amount);
         BigDecimal newFromAccountBalance = fromAccountBalance.subtract(amount);
