@@ -6,20 +6,109 @@
     <link rel= "stylesheet" href= "style.css">
 </head>
 <body>
+<div class="content" style="width: 100%; text-align: center;">
+
+<img src = "https://i.pinimg.com/originals/39/f2/c1/39f2c11bdf52fb989ec2e70f03919a7b.jpg"/>
 
 <p>Kliendi andmed</p>
-Customer ID: <input id="customer_id"/>
-Name: <input id="name"/>
-Account nr: <input id="account_nr"/>
-<button id="create_button" type="button" >Salvesta kliendi andmed</button>
+    <p>Kliendi ID: <input id="customer_id"></p>
+    <p>Nimi: <input id="name"/></p>
+    <p>Konto nr: <input id="account_nr"/></p>
+    <p><button id="create_button" type="button" >Salvesta kliendi andmed</button></p>
 
 <br />
 <script>
+    function createCustomer() {
+        let customerId = document.getElementById("customer_id");
+        let name = document.getElementById("name");
+        let accountNr = document.getElementById("account_nr");
+
+        fetch(getUrl = '/bank2/customer?customerId=' + customerId.value + '&name=' + name.value + '&accountNr=' + accountNr.value,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(createCustomer)
+            });
+    }
+        let createButton = document.getElementById("create_button");
+        createButton.onclick = createCustomer;
+        </script>
 
 
+    <p>Loo uus konto</p>
+    <p>Uus kontonumber: <input id="account_number"/></p>
+    <p><button id="new_button" type="button" >Loo uus konto</button></p>
+    <br />
+    <script>
+        function createAccount() {
+        let accountNr = document.getElementById("account_number");
+
+        fetch(getUrl = '/bank2/createAccount?accountNr=' + accountNr.value,
+    {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json'
+    },
+        body: JSON.stringify(createAccount)
+    });
+    }
+        let newButton = document.getElementById("new_button");
+        newButton.onclick = createAccount;
 
 </script>
 
+    <p>Sularaha sissemakse</p>
+    <p>Kontole: <input id="accountNo"/></p>
+    <p>Summa: <input id="summa"/></p>
+    <p><button id="input_button" type="button" >Sisesta</button></p>
+    <br />
+    <script>
+        function depositMoney() {
+            let accountNr = document.getElementById("accountNo");
+            let balance = document.getElementById("summa");
 
+            fetch(getUrl = '/bank2/depositMoney?accountNo=' + accountNr.value + '&summa=' + balance.value,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(depositMoney)
+                });
+        }
+        let inputButton = document.getElementById("input_button");
+       inputButton.onclick = depositMoney;
+
+    </script>
+
+
+    <p>Sularaha väljavõtmine</p>
+    <p>Kontolt: <input id="accountNr"/></p>
+    <p>Summa: <input id="amount"/></p>
+    <p><button id="out_button" type="button" >Võta välja</button></p>
+    <br />
+    <script>
+        function withdrawMoney() {
+            let accountNr = document.getElementById("accountNr");
+            let balance = document.getElementById("amount");
+
+            fetch(getUrl = '/bank2/withdrawMoney?accountNr=' + accountNr.value + '&amount=' + balance.value,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(withdrawMoney)
+                });
+        }
+        let outButton = document.getElementById("out_button");
+        outButton.onclick = withdrawMoney;
+
+    </script>
+
+
+</div>
 </body>
 </html>

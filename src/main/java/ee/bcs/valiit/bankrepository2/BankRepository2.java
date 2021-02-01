@@ -55,11 +55,11 @@ public class BankRepository2 {
         paramMap2.put("balance", amount);
         jdbcTemplate.update(sql2, paramMap2);
 
-        String sql3 = "INSERT INTO transaction_history (account_number, balance) VALUES (:accountNumber, :balance)";
-        Map<String, Object> paramMap3 = new HashMap<>();
-        paramMap3.put("accountNumber", accountNr);
-        paramMap3.put("balance", amount);
-        jdbcTemplate.update(sql3, paramMap3);
+        //String sql3 = "INSERT INTO transaction_history (account_number, balance) VALUES (:accountNumber, :balance)";
+        //Map<String, Object> paramMap3 = new HashMap<>();
+        //paramMap3.put("accountNumber", accountNr);
+        //paramMap3.put("balance", amount);
+        //jdbcTemplate.update(sql3, paramMap3);
     }
 
     public BigDecimal withdrawMoney(String accountNr, BigDecimal amount){
