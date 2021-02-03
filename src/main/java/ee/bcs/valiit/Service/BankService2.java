@@ -3,6 +3,7 @@ package ee.bcs.valiit.Service;
 import ee.bcs.valiit.bankrepository2.BankRepository2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,13 @@ public class BankService2 {
     private NamedParameterJdbcTemplate jdbcTemplate;
     @Autowired
     private BankRepository2 bankRepository2;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+   // public String findPasswordByUserName(String username){
+      //  return bankRepository2.findPasswordByUsername(username);
+
+   // }
 
     public void createAccount(String accountNr) {
         bankRepository2.createAccount (accountNr);
@@ -69,6 +77,11 @@ public class BankService2 {
             BigDecimal newToAccountBalance = toAccountBalance.add(amount);
         bankRepository2.updateBalance(toAccount2, newToAccountBalance);
     }
+   // public void transactionHistory ( String accountNr, BigDecimal amount){
+      //  BigDecimal balance = bankRepository2.depositMoney(accountNr, amount);
+     //   BigDecimal newBalance = balance.add(amount);
+      //  bankRepository2.updateBalance (accountNr, newBalance);
+   // }
 
 
 }

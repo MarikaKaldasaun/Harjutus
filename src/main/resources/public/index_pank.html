@@ -109,6 +109,61 @@
     </script>
 
 
+    <p>Kuva saldo</p>
+    <p>Konto number: <input id="accountNum"/></p>
+    <p><button id="balance_button" type="button" >Kuva saldo</button></p>
+    <br />
+    <script>
+        function accountBalance() {
+            let accountNr = document.getElementById("accountNum");
+            let balance = document.getElementById("summa");
+
+            fetch(getUrl = '/bank2/accountBalance?accountNum=' + accountNr.value,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                   // body: JSON.stringify(accountBalance())
+                })
+                .then(result => result.text())
+                .then(function(result){
+                    // balance.value = result.value
+                    alert(result);
+                });
+        }
+        let balanceButton = document.getElementById("balance_button");
+        balanceButton.onclick = accountBalance;
+    </script>
+
+
+    <p>Ülekanne</p>
+    <p>Kontolt nr: <input id="fromAccount"></p>
+    <p>Kontole nr: <input id="toAccount"/></p>
+    <p>Kantav summa: <input id="sum"/></p>
+    <p><button id="transfer_button" type="button" >Kanna kontolt kontole</button></p>
+
+    <br />
+    <script>
+        function transferMoney() {
+            let accountNr1 = document.getElementById("fromAccount");
+            let accountNr2 = document.getElementById("toAccount");
+            let balance = document.getElementById("sum");
+
+            fetch(getUrl = '/bank2/transferMoney?fromAccount=' + accountNr1.value + '&toAccount=' + accountNr2.value + '&sum=' + balance.value,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(transferMoney)
+                });
+        }
+        let transferButton = document.getElementById("transfer_button");
+        transferButton.onclick = transferMoney;
+    </script>
+
+
 </div>
 </body>
 </html>

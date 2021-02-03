@@ -38,10 +38,10 @@ public class BankController2 {
         bankService2.createCustomer(customerId, name, accountNr);
     }
 
-    // http://localhost:8080/bank2/accountBalance?accountNr=EE123
+    // http://localhost:8080/bank2/accountBalance?accountNum=EE123
     //http://localhost:8080/bank2/accountBalance?accountNr=EE125
     @GetMapping("accountBalance")
-    public BigDecimal accountBalance(@RequestParam("accountNr") String accountNr){
+    public BigDecimal accountBalance(@RequestParam("accountNum") String accountNr){
         return bankService2.accountBalance(accountNr);
 
         // return accountMap.get(accountNr);
@@ -60,13 +60,17 @@ public class BankController2 {
        bankService2.withdrawMoney(accountNr, amount);
     }
 
-    // http://localhost:8080/bank2/transferMoney?fromAccount=EE123&toAccount=EE124&amount=12
+    // http://localhost:8080/bank2/transferMoney?fromAccount=EE123&toAccount=EE124&sum=12
     @GetMapping("transferMoney")
     public void transferMoney(@RequestParam("fromAccount") String fromAccount2,
                               @RequestParam("toAccount") String toAccount2,
-                              @RequestParam("amount") BigDecimal amount) {
+                              @RequestParam("sum") BigDecimal amount) {
         // BigDecimal fromAccountBalance = accountMap.get(fromAccount);
         bankService2.transferMoney(fromAccount2, toAccount2, amount);
     }
+  //  @GetMapping("transactionHistory")
+  //  public void transactionHistory (@RequestParam("accountNo") String accountNr, @RequestParam("summa") BigDecimal amount){
+    //    bankService2.transactionHistory(accountNr, amount);
+    //}
 
 }

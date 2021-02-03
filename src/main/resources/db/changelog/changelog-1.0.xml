@@ -13,13 +13,15 @@
             </column>
             <column name="name" type="text"/>
             <column name="account_nr" type="text"/>
+            <column name="username" type="text"/>
+            <column name="password" type ="text"/>
         </createTable>
 
         <createTable tableName="account2">
             <column name="customer_id" type="int">
                 <constraints foreignKeyName="fk_account2_customer" references="customer(customer_id)"/>
             </column>
-            <column name="account_id" type="int" autoIncrement="true">
+            <column name="account_id" type="int">
                 <constraints primaryKey="true"/>
             </column>
             <column name="account_number" type="text"/>
@@ -31,9 +33,9 @@
 
 
         <createTable tableName="transaction_history">
-            <column name="customer_id" type="int"> <constraints foreignKeyName="fk_transaction_history_account2" references="account2(account_id)"/>
+            <column name="account_id" type="int"> <constraints foreignKeyName="fk_transaction_history_account2" references="account2(account_id)"/>
         </column>
-        <column name="account_id" type="int" autoIncrement="true">
+        <column name="customer_id" type="int">
             <constraints primaryKey="true"/>
             </column>
             <column name="fromaccount" type="text"/>
@@ -42,7 +44,6 @@
             <column name="withdraw" type="numeric(10,2)"/>
             <column name="transfer" type="numeric(10,2)"/>
             <column name="balance" type="numeric(10,2)"/>
-            <column name="date" type="text"/>
         </createTable>
 
     </changeSet>

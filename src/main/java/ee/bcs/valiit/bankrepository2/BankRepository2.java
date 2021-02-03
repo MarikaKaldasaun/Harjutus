@@ -1,5 +1,6 @@
 package ee.bcs.valiit.bankrepository2;
 
+import ee.bcs.valiit.tasks.service.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
@@ -54,13 +55,9 @@ public class BankRepository2 {
         paramMap2.put("accountNumber", accountNr);
         paramMap2.put("balance", amount);
         jdbcTemplate.update(sql2, paramMap2);
-
-        //String sql3 = "INSERT INTO transaction_history (account_number, balance) VALUES (:accountNumber, :balance)";
-        //Map<String, Object> paramMap3 = new HashMap<>();
-        //paramMap3.put("accountNumber", accountNr);
-        //paramMap3.put("balance", amount);
-        //jdbcTemplate.update(sql3, paramMap3);
     }
+
+
 
     public BigDecimal withdrawMoney(String accountNr, BigDecimal amount){
         String sql = "SELECT balance FROM account2 where account_number = :accountNumber";
@@ -111,5 +108,18 @@ public class BankRepository2 {
         paramMap4.put("balance", amount);
         jdbcTemplate.update(sql4, paramMap4);
     }
+    public String findPasswordByUsername ( String username){
+        String sql = "SELECT password FROM customer WHERE username = :username";
+        Map<String, Object> paramMap = new HashMap();
+        paramMap.put("username", username);
+        return jdbcTemplate.queryForObject(sql, paramMap, String.class);
+    }
+   // public void transactionHistory ( String accountNr, BigDecimal amount){
+   // String sql = "UPDATE transaction_history SET balance = :balance WHERE account_number = :toAccount";
+   // Map<String, Object> paramMap = new HashMap<>();
+   // paramMap.put("toAccount", accountNr);
+  //  paramMap.put("balance", amount);
+   // jdbcTemplate.update(sql, paramMap);
+//}
 
 }
