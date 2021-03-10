@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './App.css';
+import Dropdown from './dropdown.js';
+import './dropdown.css';
+import './recipes.json';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
